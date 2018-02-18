@@ -20,18 +20,33 @@ const particlesOptions = {
       shadow: {
         enable: true,
         color: "#3CA9D1",
-        blur: 5
+        blur: 5,
+        distance: 200
       }
     },
 
     number: {
-      value: 30,
+      value: 20,
       density: {
         enable: true,
         value_area: 800
       }
     }
-  }
+  },
+  interactivity: {
+    detect_on: 'window',
+    events: {
+        onhover: {
+            enable: true,
+            mode: 'repulse'
+        },
+        onclick: {
+            enable: true,
+            mode: 'push'
+        },
+        
+    }
+},
 }
 
 class App extends Component { 
