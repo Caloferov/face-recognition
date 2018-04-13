@@ -3,8 +3,7 @@ import Clarifai from 'clarifai';
 import Particles from 'react-particles-js';
 import Navigation from './components/Navigation/Navigation.js';
 import Logo from './components/Logo/Logo.js';
-import Signin from './components/Signin/Signin.js';
-import Register from './components/Register/Register.js';
+
 import FaceRecognition from './components/FaceRecognition/FaceRecognition.js';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm.js';
 import Rank from './components/Rank/Rank.js';
@@ -61,6 +60,9 @@ class App extends Component {
     }
   }
 
+
+
+
 calculateFaceLocation = (data) => {
 const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
 const image = document.getElementById('inputimage');
@@ -74,6 +76,9 @@ return {
 
 }
 }
+
+
+
 
 displayFaceBox = (box) => {
   this.setState({box: box});
@@ -118,9 +123,12 @@ onRouteChange = (route) => {
         <FaceRecognition box={box} imageUrl={imageUrl}/> 
       </div>
         : (
-          this.state.route === 'signin' 
-          ? <Signin onRouteChange={this.onRouteChange} />
-          : <Register onRouteChange={this.onRouteChange} />
+          <div>
+          <Logo />
+         {/*  <Rank /> */}
+          <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
+          <FaceRecognition box={box} imageUrl={imageUrl}/> 
+        </div>
         )
         }
       </div>
